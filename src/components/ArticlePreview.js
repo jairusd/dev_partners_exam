@@ -8,7 +8,9 @@ import {
   CardTitle,
 } from 'react-md'
 
-export default function ArticlePreview({article, onDelete, onShowArticle}) {
+export default function ArticlePreview({
+  article, onDelete, onEdit, onShowArticle
+}) {
   const {
     id, title, content, dateCreated,
   } = article
@@ -28,7 +30,7 @@ export default function ArticlePreview({article, onDelete, onShowArticle}) {
       </CardText>
 
       <CardActions>
-        <Button flat>Edit</Button>
+        <Button flat onClick={onEdit}>Edit</Button>
         <Button flat secondary onClick={() => onDelete(id)}>Delete</Button>
       </CardActions>
     </Card>

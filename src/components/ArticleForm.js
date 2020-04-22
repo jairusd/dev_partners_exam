@@ -6,6 +6,8 @@ export default function ArticleForm({onSave, form, setForm}) {
     setForm({...form, [e.target.id]: value})
   }
 
+  if (!form) return null
+
   return (
     <div className="article-form">
       <TextField

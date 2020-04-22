@@ -1,15 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {
   DialogContainer, Toolbar, Button
 } from 'react-md'
 import moment from 'moment'
 import ArticleForm from './ArticleForm'
 
-export default function CreateArticleDialog({show, onHide, onSave}) {
-  const [form, setForm] = useState({
-    content: '',
-    title: '',
-  })
+export default function EditArticleDialog({
+  show, onHide, onSave, article,
+}) {
+  const [form, setForm] = useState(article)
 
   const doSave = () => {
     onSave({
@@ -17,6 +16,10 @@ export default function CreateArticleDialog({show, onHide, onSave}) {
       dateCreated: moment().format('YYYY/MM/DD'),
     })
   }
+
+  useEffect(() => {
+    setForm(article)
+  }, [article])
 
   return (
     <DialogContainer
@@ -29,7 +32,7 @@ export default function CreateArticleDialog({show, onHide, onSave}) {
       <Toolbar
         fixed
         colored
-        title="New Article"
+        title="Edit Article"
         titleId="create-article-dialog"
         nav={<Button icon onClick={onHide}>close</Button>}
         actions={<Button flat onClick={doSave}>Save</Button>}
