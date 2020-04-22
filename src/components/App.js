@@ -4,11 +4,15 @@ import ArticlePreview from './ArticlePreview'
 import CreateArticle from './CreateArticle'
 
 export default function App() {
-  const initialArticles = Array(3)
+  const initialArticles = Array(1)
     .fill({
-      content: 'test content',
-      dateCreated: 'test date',
-      title: 'test title',
+      content: `WHO is continuously monitoring and responding to this outbreak.
+        This Q&A will be updated as more is known about COVID-19, how it spreads
+        and how it is affecting people worldwide. For more information, check back
+        regularly on WHO’s coronavirus pages. https://www.who.int/emergencies/diseases/novel-coronavirus-2019',
+      `,
+      dateCreated: '8 April 2020',
+      title: 'Q&A on coronaviruses (COVID-19)',
     })
     .map((e, i) => ({...e, id: i}))
 
@@ -28,6 +32,10 @@ export default function App() {
     }
   }
 
+  const doShowArticle = () => {
+    console.log('test')
+  }
+
   return (
     <div className="container">
       <CreateArticle onSave={doSaveArticle} />
@@ -39,6 +47,7 @@ export default function App() {
             article={article}
             onDelete={doDeleteArticle}
             onSave={doSaveArticle}
+            onShowArticle={doShowArticle}
           />
         ))}
       </div>

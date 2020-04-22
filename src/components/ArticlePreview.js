@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from 'react-md'
 
-export default function ArticlePreview({article, onDelete}) {
+export default function ArticlePreview({article, onDelete, onShowArticle}) {
   const {
     id, title, content, dateCreated,
   } = article
@@ -16,7 +16,7 @@ export default function ArticlePreview({article, onDelete}) {
   return (
     <Card className="article-preview">
       <CardTitle
-        title={title}
+        title={<h1 onClick={onShowArticle}>{title}</h1>}
         subtitle={dateCreated}
         avatar={<Avatar src="https://picsum.photos/100/100" role="presentation" />}
       />
