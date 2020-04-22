@@ -1,0 +1,25 @@
+@import './reset.scss';
+@import './globals';
+
+@include react-md-everything;
+
+body {
+  // background: #3d3d3d;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 10px auto;
+}
+
+.articles-preview {
+  margin-top: 50px;
+}
+
+.article-preview {
+  margin-bottom: 20px;
+}
+
+.article-form {
+  margin-top: 100px;
+}
