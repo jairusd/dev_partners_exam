@@ -16,12 +16,16 @@ export default function App() {
   }
 
   const doSaveArticle = (content) => {
+    console.log('@content', content)
     if (!content.id) {
       setArticles([...articles, {
         ...content,
         id: moment().format('YYYY/MM/DD'),
       }])
     }
+
+    const filtered = articles.filter(a => a.id !== content.id)
+    setArticles([...filtered, content])
   }
 
   const doShowArticle = () => {
@@ -32,8 +36,6 @@ export default function App() {
     setShowEdit(true)
     setCurrentArticle(chosenArticle)
   }
-
-  console.log('@currentArticle', currentArticle)
 
   return (
     <div className="container">

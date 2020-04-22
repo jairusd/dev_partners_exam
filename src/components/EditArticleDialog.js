@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import {
   DialogContainer, Toolbar, Button
 } from 'react-md'
-import moment from 'moment'
 import ArticleForm from './ArticleForm'
 
 export default function EditArticleDialog({
@@ -10,11 +9,9 @@ export default function EditArticleDialog({
 }) {
   const [form, setForm] = useState(article)
 
-  const doSave = () => {
-    onSave({
-      ...form,
-      dateCreated: moment().format('YYYY/MM/DD'),
-    })
+  const doSave = async data => {
+    await onHide()
+    onSave(form)
   }
 
   useEffect(() => {
