@@ -16,6 +16,7 @@ export default function App() {
   }
 
   const doSaveArticle = (content) => {
+    console.log('@content', content)
     if (!content.id) {
       return setArticles([...articles, {
         ...content,
@@ -24,6 +25,7 @@ export default function App() {
     }
 
     const filtered = articles.filter(a => a.id !== content.id)
+    console.log('@filtered', filtered)
     setArticles([...filtered, content])
   }
 

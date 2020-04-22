@@ -6,7 +6,7 @@ export const articles = [
       regularly on WHO’s coronavirus pages. https://www.who.int/emergencies/diseases/novel-coronavirus-2019',
     `,
     dateCreated: '8 April 2020',
-    id: 0,
+    id: '8 April 2020',
     title: 'Q&A on coronaviruses (COVID-19)',
   }
 ]
