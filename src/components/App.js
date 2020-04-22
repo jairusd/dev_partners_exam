@@ -16,9 +16,8 @@ export default function App() {
   }
 
   const doSaveArticle = (content) => {
-    console.log('@content', content)
     if (!content.id) {
-      setArticles([...articles, {
+      return setArticles([...articles, {
         ...content,
         id: moment().format('YYYY/MM/DD'),
       }])
